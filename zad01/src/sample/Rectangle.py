@@ -9,6 +9,8 @@ class Rect:
                 if a > 1:
                     r += "*" * b + "\n"
                 return r
+
+
             else:
                 raise Exception("Długość boku musi być dłuższa od 0")
         else:

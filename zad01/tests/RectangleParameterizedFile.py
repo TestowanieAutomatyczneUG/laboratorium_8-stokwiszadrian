@@ -12,7 +12,10 @@ class RectangleParameterizedFile(unittest.TestCase):
         else:
             data = line.split(",")
             inp1, inp2, result = int(data[0]) | bool(data[0]), int(data[1]) | bool(data[1]), data[2].rstrip('\n').encode("idna")
-            self.assertEqual(tmpRectangle.draw_rect(inp1, inp2).encode("unicode_escape"), result)
+            if result == b"Exception":
+                self.assertRaises(Exception, tmpRectangle.draw_rect, -4, 1)
+            else:
+                self.assertEqual(tmpRectangle.draw_rect(inp1, inp2).encode("unicode_escape"), result)
       fileTest.close()
 
 
