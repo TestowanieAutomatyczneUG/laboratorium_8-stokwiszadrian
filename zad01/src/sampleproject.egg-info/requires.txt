@@ -1,0 +1,10 @@
+peppercorn
+pyhamcrest
+parameterized
+assertpy
+
+[dev]
+check-manifest
+
+[test]
+coverage
