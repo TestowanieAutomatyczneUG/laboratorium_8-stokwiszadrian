@@ -48,5 +48,18 @@ class ValidatePasswordParameterizedClass(unittest.TestCase):
         self.assertEqual(self.tmp.ValidPassword(self.password), self.expected)
 
 
+@parameterized_class(('password', 'exception'), [
+    (["kjhs@@@a1"], TypeError),
+    (128344, TypeError),
+    (123.333, TypeError)
+])
+class ValidatePasswordParameterizedClass(unittest.TestCase):
+    def setUp(self):
+        self.tmp = ValidatePassword()
+
+    def test_second_parameterized(self):
+        self.assertRaises(self.exception, self.tmp.ValidPassword, self.password)
+
+
 if __name__ == '__main__':
     unittest.main()
